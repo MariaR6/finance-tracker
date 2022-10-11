@@ -25,7 +25,8 @@ public class CategoryServiceImp implements CategoryService{
         return categories;
     }
 
-    public Category saveCategory(Category category) {
-        return categoryRepository.save(category);
+    @Override
+    public Category saveCategory(String name) {
+        return categoryRepository.save(new Category(null, name));
     }
 }
