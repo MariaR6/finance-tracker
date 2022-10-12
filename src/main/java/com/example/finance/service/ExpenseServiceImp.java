@@ -4,6 +4,7 @@ import com.example.finance.entity.Category;
 import com.example.finance.entity.Expense;
 import com.example.finance.repository.CategoryRepository;
 import com.example.finance.repository.ExpenseRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +12,14 @@ import java.time.Instant;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ExpenseServiceImp implements ExpenseService{
 
     @Autowired
-    private ExpenseRepository expenseRepository;
+    private final ExpenseRepository expenseRepository;
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     @Override
     public Expense saveExpense(Integer categoryId,  double amount, String comment, Instant timestamp) {
