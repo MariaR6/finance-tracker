@@ -23,4 +23,7 @@ public class Category {
     @Column(name = "name")
     private String name;
 
+    @Column(name="isDeleted")
+    private boolean isDeleted;
+
 }

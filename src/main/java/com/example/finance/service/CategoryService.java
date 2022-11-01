@@ -9,4 +9,6 @@ public interface CategoryService {
     List<Category> getAllCategory();
 
     Category saveCategory(String name);
+
+    void deleteCategoryById(Integer id);
 }
