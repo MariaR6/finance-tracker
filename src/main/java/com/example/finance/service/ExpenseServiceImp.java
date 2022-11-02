@@ -1,5 +1,6 @@
 package com.example.finance.service;
 
+import com.example.finance.dto.ExpenseDto;
 import com.example.finance.entity.Category;
 import com.example.finance.entity.Expense;
 import com.example.finance.repository.CategoryRepository;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -45,7 +47,10 @@ public class ExpenseServiceImp implements ExpenseService {
     }
 
     @Override
-    public List<Expense> getExpenseForPeriod(Instant start, Instant end) {
-        return expenseRepository.findByTimestampBetween(start, end);
+    public List<ExpenseDto> getExpenseForPeriod(Instant start, Instant end) {
+        return expenseRepository.findByTimestampBetween(start, end)
+                .stream()
+                .map(Utils::expenseEntityToDto)
+                .collect(Collectors.toList());
     }
 }

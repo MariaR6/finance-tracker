@@ -1,5 +1,6 @@
 package com.example.finance.controller;
 
+import com.example.finance.dto.ExpenseDto;
 import com.example.finance.entity.Expense;
 import com.example.finance.service.ExpenseService;
 import lombok.RequiredArgsConstructor;
@@ -29,8 +30,8 @@ public class ExpenseController {
     }
 
     @GetMapping("/expense/list")
-    public List<Expense> getExpenseForPeriod(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) @RequestParam Instant start,
-                                             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) @RequestParam Instant end) {
+    public List<ExpenseDto> getExpenseForPeriod(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) @RequestParam Instant start,
+                                                @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) @RequestParam Instant end) {
         return expenseService.getExpenseForPeriod(start, end);
     }
 }

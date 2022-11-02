@@ -8,7 +8,6 @@ import lombok.Data;
 @Builder
 public class ReportItemDto {
 
-    private Category category;
-
+    private String category;
     private double total;
 }

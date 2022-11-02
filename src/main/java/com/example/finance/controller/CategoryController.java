@@ -1,5 +1,6 @@
 package com.example.finance.controller;
 
+import com.example.finance.dto.CategoryDto;
 import com.example.finance.entity.Category;
 import com.example.finance.service.CategoryService;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @GetMapping("/category/list")
-    public List<Category> getAllCategories() {
+    public List<CategoryDto> getAllCategories() {
         return categoryService.getAllCategory();
     }
 

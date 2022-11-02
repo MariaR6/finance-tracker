@@ -31,7 +31,7 @@ public class ReportServiceImpl implements ReportService{
                 itemDto.setTotal(itemDto.getTotal() + expense.getAmount());
             } else {
                 result.put(expense.getCategory().getId(), ReportItemDto.builder()
-                        .category(expense.getCategory())
+                        .category(expense.getCategory().getName())
                         .total(expense.getAmount())
                         .build());
             }

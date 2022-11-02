@@ -1,5 +1,6 @@
 package com.example.finance.service;
 
+import com.example.finance.dto.CategoryDto;
 import com.example.finance.entity.Category;
 import com.example.finance.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,17 +13,17 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryServiceImp implements CategoryService{
+public class CategoryServiceImp implements CategoryService {
 
     @Autowired
     private final CategoryRepository categoryRepository;
 
     @Override
-    public List<Category> getAllCategory() {
-        List<Category> categories = new ArrayList<Category>();
+    public List<CategoryDto> getAllCategory() {
+        List<CategoryDto> categories = new ArrayList<CategoryDto>();
         for (Category str : categoryRepository.findAll()) {
-            if(!str.isDeleted()) {
-                categories.add(str);
+            if (!str.isDeleted()) {
+                categories.add(Utils.categoryEntityToDto(str));
             }
         }
         return categories;

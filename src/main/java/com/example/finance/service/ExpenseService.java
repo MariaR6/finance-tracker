@@ -1,5 +1,6 @@
 package com.example.finance.service;
 
+import com.example.finance.dto.ExpenseDto;
 import com.example.finance.entity.Category;
 import com.example.finance.entity.Expense;
 
@@ -12,6 +13,6 @@ public interface ExpenseService {
 
     void deleteExpenseById(Integer id);
 
-    List<Expense> getExpenseForPeriod(Instant start, Instant end);
+    List<ExpenseDto> getExpenseForPeriod(Instant start, Instant end);
 
 }
